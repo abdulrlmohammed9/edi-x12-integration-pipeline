@@ -2,7 +2,15 @@
 
 A runnable Python portfolio project that processes **synthetic X12 204 load tenders, 210 freight invoices, and 214 shipment status messages**. It demonstrates local ingestion, validation, JSON transformation, error quarantine, duplicate detection, and operational monitoring.
 
-All partners, shipments, invoices, addresses, and amounts are fictional. This is an independent demonstration inspired by common freight integration workflows; it contains no employer source code or production data.
+All partners, shipments, invoices, addresses, and amounts in the runnable pipeline are fictional. This is an independent demonstration inspired by common freight integration workflows; it contains no employer source code or production data.
+
+## Professional project presentation
+
+[Download the Project Ozark presentation (PowerPoint)](docs/presentations/Project-Ozark-Enterprise-Integration-and-IT-Modernization.pptx)
+
+This 15-slide presentation describes Abdul Rahman Mohammed's reported EDI and data integration work supporting FedEx Freight through Accenture. It covers Cleo Integration Cloud (Studio and Cockpit), ANSI X12, SQL, Java, MFT protocols, Jenkins, ServiceNow, partner onboarding, mapping, incident investigation, and deployment validation. Case studies include rail-processing recovery, a Walmart 214 mapping enhancement, and 210 invoice performance investigation.
+
+The deck provides professional experience context. The runnable code in this repository is an independent Python demonstration using synthetic data. Tools and production capabilities described in the presentation are not all implemented in this repository. Its architecture is identified as conceptual and sanitized; production case-study metrics are presenter-reported and are separate from the sample execution results documented below.
 
 ## Quick start
 
