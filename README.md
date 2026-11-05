@@ -132,11 +132,11 @@ The [complete accepted record](docs/evidence/accepted-204.json) also preserves e
 
 To view the saved dashboard, open its repository link, download the raw HTML file, and open it locally in a browser. GitHub's file viewer displays its source rather than running the dashboard. These files are preserved evidence snapshots; future local runs continue writing to the ignored `output/` folder. Python bytecode cache files (`.pyc`) are intentionally excluded from documentation evidence.
 
-## Operational limits and future work
+## Operational limits
 
 Run one process per output directory. SQLite commits per file and atomic JSON replacement help local use, but file writes and database records are not one distributed transaction; this is not an exactly-once production system. The dashboard and history are unbounded for a small portfolio demonstration.
 
-Future work: partner-configurable rules and full implementation-guide validation; multi-transaction splitting; business-key duplicate detection; 997/999 acknowledgments; SFTP/AS2 ingress; scheduled ingestion; alert thresholds; retention and retry policies; database/output transaction coordination; and optional cloud deployment. These integrations are not implemented or claimed as live capabilities.
+partner-configurable rules and full implementation-guide validation; multi-transaction splitting; business-key duplicate detection; 997/999 acknowledgments; SFTP/AS2 ingress; scheduled ingestion; alert thresholds; retention and retry policies; database/output transaction coordination; and optional cloud deployment. These integrations are not implemented or claimed as live capabilities.
 
 ## License
 
