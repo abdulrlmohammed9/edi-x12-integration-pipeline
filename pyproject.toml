@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "edi-x12-integration-pipeline"
+version = "0.1.0"
+description = "Synthetic X12 204/210/214 integration demo"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+x12-pipeline = "edi_pipeline.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["edi_pipeline*"]
