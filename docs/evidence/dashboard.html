@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>X12 Pipeline Monitor</title><style>body{font:16px system-ui;background:#101827;color:#e5eaf2;margin:4vw}h1{color:#64d8cc}table{border-collapse:collapse;width:100%;background:#182438}td,th{padding:12px;text-align:left;border-bottom:1px solid #35445a}pre{padding:20px;background:#182438;white-space:pre-wrap}a{color:#64d8cc}</style><h1>X12 Integration Monitor</h1><p>Synthetic data · local batch processing · refresh after each run</p><pre>{
+  &quot;last_run&quot;: {
+    &quot;accepted&quot;: 3,
+    &quot;rejected&quot;: 3,
+    &quot;duplicate&quot;: 0
+  },
+  &quot;cumulative_unique_files&quot;: {
+    &quot;accepted&quot;: 3,
+    &quot;rejected&quot;: 3
+  },
+  &quot;updated_at&quot;: &quot;2026-11-05T09:53:56.652698+00:00&quot;
+}</pre><h2>Unique file history</h2><table><tr><th>Status</th><th>X12</th><th>Source</th><th>Error</th><th>Latency ms</th><th>UTC timestamp</th></tr><tr><td>accepted</td><td>214</td><td>214.edi</td><td></td><td>0.676</td><td>2026-11-05T09:53:56.648097+00:00</td></tr><tr><td>accepted</td><td>210</td><td>210.edi</td><td></td><td>3.775</td><td>2026-11-05T09:53:56.640958+00:00</td></tr><tr><td>accepted</td><td>204</td><td>204.edi</td><td></td><td>0.33</td><td>2026-11-05T09:53:56.635816+00:00</td></tr><tr><td>rejected</td><td></td><td>control_mismatch.edi</td><td>Envelope: control number mismatch</td><td>0.422</td><td>2026-11-05T09:53:56.631718+00:00</td></tr><tr><td>rejected</td><td></td><td>bad_status.edi</td><td>AT701: unsupported demo status</td><td>0.451</td><td>2026-11-05T09:53:56.627662+00:00</td></tr><tr><td>rejected</td><td></td><td>bad_count.edi</td><td>SE01: segment count mismatch</td><td>0.602</td><td>2026-11-05T09:53:56.621986+00:00</td></tr></table></html>

@@ -1,0 +1,24 @@
+{
+  "transaction_type": "204",
+  "control_number": "0001",
+  "interchange_control": "000000001",
+  "sender": "DEMO_SHIPPER",
+  "receiver": "DEMO_CARRIER",
+  "version": "004010",
+  "shipment_id": "LOAD1001",
+  "carrier_scac": "DMOC",
+  "payment_method": "PP",
+  "stops": [
+    {
+      "sequence": "1",
+      "reason": "LD"
+    },
+    {
+      "sequence": "2",
+      "reason": "UL"
+    }
+  ],
+  "source_file": "204.edi",
+  "sha256": "4c2cd23a2d2a6176017db47a79851dace7265ac294378be691ae2a5bdd167c99",
+  "processed_at": "2026-11-05T09:53:56.635816+00:00"
+}

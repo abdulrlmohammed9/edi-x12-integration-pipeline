@@ -81,6 +81,49 @@ Locally verified on Python 3.12 on November 5, 2026:
 
 Tests cover the three mappings, alternate delimiters, malformed/truncated envelopes, missing business segments, invalid dates/status/amounts, mismatched totals/control counts, production/multiple-interchange rejection, quarantine artifacts, and persistent replay protection. GitHub Actions is configured for Python 3.10 and 3.12; local verification is distinct from hosted CI results.
 
+## Execution evidence from GitHub Codespaces
+
+The following user-captured artifacts document a sample-data run on **November 5, 2026**. Timestamps in the saved output files are UTC.
+
+| Evidence | Observed result |
+|---|---|
+| [Initial batch event log](docs/evidence/events.jsonl) | Six unique files: three accepted (204/210/214) and three intentionally rejected |
+| [Initial dashboard snapshot](docs/evidence/dashboard.html) | First-batch totals: 3 accepted, 3 rejected, 0 duplicates |
+| [Replay summary](docs/evidence/summary.json) | Subsequent batch: 0 accepted, 0 rejected, 6 duplicates; cumulative history remains 3 accepted and 3 rejected |
+| [Accepted 204 JSON record](docs/evidence/accepted-204.json) | Shipment LOAD1001, carrier DMOC, payment PP, and two mapped stops |
+| Test terminal capture below | Shows 10 tests executed in 0.021 seconds; the final unittest status line is outside the screenshot |
+
+The dashboard and summary were saved at different stages: the dashboard reflects the initial run at approximately 09:53 UTC, while the summary reflects the replay at approximately 09:58 UTC. These are complementary snapshots, not conflicting totals. The three expected rejection reasons are a segment-count mismatch, an unsupported demo status, and a control-number mismatch.
+
+### Automated test execution
+
+![Codespaces terminal showing automated test execution](docs/images/test-results.png)
+
+### Duplicate replay protection
+
+![Codespaces terminal showing six duplicate files skipped](docs/images/duplicate-replay.png)
+
+### Accepted business record
+
+Selected fields from the uploaded 204 output:
+
+```json
+{
+  "transaction_type": "204",
+  "shipment_id": "LOAD1001",
+  "carrier_scac": "DMOC",
+  "payment_method": "PP",
+  "stops": [
+    {"sequence": "1", "reason": "LD"},
+    {"sequence": "2", "reason": "UL"}
+  ]
+}
+```
+
+The [complete accepted record](docs/evidence/accepted-204.json) also preserves envelope identifiers, the source filename, a SHA-256 digest, and the processing timestamp. All evidence contains synthetic demonstration data.
+
+To view the saved dashboard, open its repository link, download the raw HTML file, and open it locally in a browser. GitHub's file viewer displays its source rather than running the dashboard. These files are preserved evidence snapshots; future local runs continue writing to the ignored `output/` folder. Python bytecode cache files (`.pyc`) are intentionally excluded from documentation evidence.
+
 ## Operational limits and future work
 
 Run one process per output directory. SQLite commits per file and atomic JSON replacement help local use, but file writes and database records are not one distributed transaction; this is not an exactly-once production system. The dashboard and history are unbounded for a small portfolio demonstration.
